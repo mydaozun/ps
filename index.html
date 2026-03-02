@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<title>免费在线 Photoshop 工具_网页版 PS 在线修图抠图去水印_无需下载直接使用 | FreePS</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<meta name="description" content="在线图像编辑器，一款使用HTML5+Vue技术开发的开源在线图像编辑器，具有图像编辑、画笔、滤镜、调整大小、文本、缩放、图层和截图等功能。该编辑器模仿了Photoshop的大部分功能..." />
+	<meta name="keywords"
+		content="照片, Photopea, 图像, 图片, 透明, 图层, 免费, 编辑, html5, 画布, javascript, 在线, photoshop, gimp, 效果, 锐化, 模糊, 魔术橡皮擦工具, 克隆工具, 旋转, 调整大小, photoshop-在线, 在线工具, 倾斜偏移, 精灵, 关键点" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, user-scalable=yes" />
+	<link rel="icon" sizes="192x192" href="images/favicon.png">
+	<!-- <link rel="manifest" href="dist/manifest.json"> -->
+	<!-- Google -->
+
+	<link rel="canonical" href="https://52dh.cc.cd">
+	<meta itemprop="name" content="免费在线 PS 工具 - 全能免费版" />
+	<meta itemprop="description" content="免费在线 PS 工具，无需下载、打开即用，支持在线修图、智能抠图、去水印、换背景、图片合成、证件照制作、尺寸修改等全功能图片处理。操作简单易上手，无广告无套路，适合新手、学生、自媒体、办公人群快速出图。稳定流畅、高清导出，满足日常设计与修图需求，是真正好用又免费的在线 PS 神器。" />
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="免费在线 Photoshop 工具 - freeps" />
+	<meta name="twitter:description" content="免费在线 Photoshop 工具全新升级，一键智能抠图、去瑕疵、修复老照片、换背景、生成海报与证件照，功能强大又简单。网页版直接使用，无需安装登录，支持图片编辑、去水印、拼图、调色等一站式服务。界面清爽、运行流畅，高清无损导出，让每个人都能轻松做出专业级图片效果。" />
+	<!-- Facebook, Pinterest -->
+	<meta property="og:title" content="超好用的免费在线 PS - 高转化引流版" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://52dh.cc.cd" />
+	<meta property="og:description" content="超好用的免费在线 PS 来了！网页版直接编辑图片，支持抠图、去水印、换背景、制作证件照、图片合成等多种实用功能。无需下载软件，小白也能快速上手，省时省力。安全稳定、无水印导出，满足设计、办公、学习、自媒体等各类作图需求，是你必备的在线图片编辑工具。" />
+	<meta property="og:site_name" content="FreePS - 免费在线Photoshop工具" />
+
+	<script src="dist/bundle.js" async></script>
+
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<nav aria-label="主菜单" class="main_menu" id="main_menu"></nav>
+
+		<div class="submenu">
+			<a class="logo" href="#">FreePS</a>
+			<div class="block attributes" id="action_attributes"></div>
+			<button class="undo_button" id="undo_button" type="button">
+				<span class="sr_only">撤销</span>
+			</button>
+		</div>
+
+		<div class="sidebar_left" id="tools_container"></div>
+
+
+		<div class="middle_area" id="middle_area">
+
+			<canvas class="ruler_left" id="ruler_left"></canvas>
+			<canvas class="ruler_top" id="ruler_top"></canvas>
+
+			<div class="main_wrapper" id="main_wrapper">
+				<div class="canvas_wrapper" id="canvas_wrapper">
+					<div id="mouse"></div>
+					<div class="transparent-grid" id="canvas_minipaint_background"></div>
+					<canvas id="canvas_minipaint">
+						<div class="trn error">
+							您的浏览器不支持canvas或JavaScript未启用。
+						</div>
+					</canvas>
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar_right">
+			<div class="preview block">
+				<h2 class="trn toggle" data-target="toggle_preview">预览</h2>
+				<div id="toggle_preview"></div>
+			</div>
+
+			<div class="colors block">
+				<h2 class="trn toggle" data-target="toggle_colors">颜色</h2>
+				<div class="content" id="toggle_colors"></div>
+			</div>
+
+			<div class="block" id="info_base">
+				<h2 class="trn toggle toggle-full" data-target="toggle_info">信息</h2>
+				<div class="content" id="toggle_info"></div>
+			</div>
+
+			<div class="details block" id="details_base">
+				<h2 class="trn toggle toggle-full" data-target="toggle_details">图层详情</h2>
+				<div class="content details-content" id="toggle_details"></div>
+			</div>
+
+			<div class="layers block">
+				<h2 class="trn">图层</h2>
+				<div class="content" id="layers_base"></div>
+			</div>
+		</div>
+	</div>
+	<div class="mobile_menu">
+		<button class="left_mobile_menu" id="left_mobile_menu_button" type="button">
+			<span class="sr_only">切换菜单</span>
+		</button>
+		<button class="right_mobile_menu" id="mobile_menu_button" type="button">
+			<span class="sr_only">切换菜单</span>
+		</button>
+	</div>
+	<div class="hidden" id="tmp"></div>
+	<div id="popups"></div>
+</body>
+
+</html>
